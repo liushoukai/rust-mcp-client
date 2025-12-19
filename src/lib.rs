@@ -1,4 +1,3 @@
-pub mod mcp;
 pub mod server;
 
 use serde::Deserialize;
