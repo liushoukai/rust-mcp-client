@@ -1,0 +1,31 @@
+# Rust 源代码和构建文件（不需要发布到 npm）
+src/
+target/
+Cargo.lock
+
+# 文档和示例
+docs/
+AGENTS.md
+
+# Git 相关
+.git/
+.gitignore
+.github/
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 测试文件
+tests/
+*.test.js
+
+# CI/CD
+.travis.yml
+.circleci/
+
+# 其他
+*.log
+.DS_Store
