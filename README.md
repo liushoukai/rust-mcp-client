@@ -170,6 +170,41 @@ npm install -g @liushoukai/rust-mcp-client
 请帮我获取当前机器的公网 IP 信息
 ```
 
+## 启用详细日志 🔍
+
+如果需要查看详细的运行日志(用于调试或了解程序运行情况),可以在配置中添加 `env` 字段:
+
+```json
+{
+  "mcpServers": {
+    "ip-info": {
+      "command": "npx",
+      "args": ["-y", "@liushoukai/rust-mcp-client"],
+      "env": {
+        "RUST_LOG": "debug"
+      }
+    }
+  }
+}
+```
+
+**可用的日志级别:**
+- `error` - 仅错误
+- `warn` - 警告和错误
+- `info` - 一般信息 (默认)
+- `debug` - 调试信息 (推荐用于故障排查)
+- `trace` - 最详细的跟踪信息
+
+**查看日志:**
+- 在 Claude Desktop 中按 `Cmd+Option+I` (macOS) 或 `Ctrl+Shift+I` (Windows/Linux)
+- 切换到 "Console" 标签页查看日志输出
+
+详细的日志配置说明请参考 [LOGGING.md](./LOGGING.md)
+
+---
+
+## 发布到 npm 📦
+
 1. 修改 GitHub 用户名
 
 编辑 scripts/install.js:39-40，将 liushoukai 改为你的 GitHub 用户名：
@@ -258,3 +293,9 @@ bin/index.js 启动 Rust 程序
 1. 首次发布前，确保在 scripts/install.js 中修改了 GitHub 用户名
 2. 确保 package.json 和 Cargo.toml 的版本号保持一致
 3. npm 包名 @liushoukai/rust-mcp-client 可以改成你想要的名字（需要在 npm 上可用）
+
+
+# 测试命令
+RUST_LOG=debug npx -y @liushoukai/rust-mcp-client << 'EOF'
+{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}
+EOF

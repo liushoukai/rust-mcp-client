@@ -23,12 +23,17 @@ impl IpInfoServer {
     /// 获取当前机器的公网IP信息，包括IP地址、地理位置、ISP等
     #[tool(description = "获取当前机器的公网IP信息，包括IP地址、地理位置、ISP等")]
     pub async fn get_ip_info(&self) -> Result<CallToolResult, ErrorData> {
+        tracing::info!("收到获取 IP 信息请求");
+        tracing::debug!("正在调用 IP 信息 API...");
+
         match crate::fetch_ip_info().await {
             Ok(ip_info) => {
+                tracing::info!("成功获取 IP 信息: {}", ip_info);
                 let content = Content::text(ip_info.to_string());
                 Ok(CallToolResult::success(vec![content]))
             }
             Err(e) => {
+                tracing::error!("获取 IP 信息失败: {}", e);
                 Err(ErrorData::internal_error(format!("获取IP信息失败: {}", e), None))
             }
         }

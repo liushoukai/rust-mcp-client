@@ -41,6 +41,13 @@ impl fmt::Display for IpInfo {
 
 pub async fn fetch_ip_info() -> Result<IpInfo, reqwest::Error> {
     let url = "https://ipinfo.io/json";
-    println!("Fetching data from: {}", url);
-    reqwest::get(url).await?.json::<IpInfo>().await
+    tracing::debug!("正在从 {} 获取 IP 信息", url);
+
+    let response = reqwest::get(url).await?;
+    tracing::debug!("收到响应,状态码: {}", response.status());
+
+    let ip_info = response.json::<IpInfo>().await?;
+    tracing::debug!("成功解析 IP 信息: {:?}", ip_info);
+
+    Ok(ip_info)
 }
