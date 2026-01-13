@@ -12,7 +12,7 @@ const streamPipeline = promisify(pipeline);
 
 // 配置参数
 const MAX_RETRIES = 3; // 最大重试次数
-const DOWNLOAD_TIMEOUT = 60000; // 下载超时时间（60秒）
+const DOWNLOAD_TIMEOUT = 180000; // 下载超时时间（60秒）
 const RETRY_DELAY = 2000; // 重试延迟（2秒）
 
 // 读取包版本
