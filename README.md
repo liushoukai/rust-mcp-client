@@ -1,24 +1,24 @@
-# Rust MCP Server - IP 信息查询服务
+# Rust MCP Server - IP Info Query Service
 
-一个使用 Rust 和官方 rmcp SDK 实现的 Model Context Protocol (MCP) 服务器，提供公网 IP 信息查询功能。
+A Model Context Protocol (MCP) server implemented in Rust using the official rmcp SDK, providing public IP information query functionality.
 
-## 功能特性
+## Features
 
-- ✅ 获取公网 IP 地址
-- ✅ 查询 IP 地理位置（城市、地区、国家）
-- ✅ 获取 ISP 信息
-- ✅ 显示时区信息
-- ✅ 提供经纬度坐标
+- ✅ Get public IP address
+- ✅ Query IP geolocation (city, region, country)
+- ✅ Get ISP information
+- ✅ Display timezone information
+- ✅ Provide latitude and longitude coordinates
 
-## 快速开始
+## Quick Start
 
-### 配置 MCP 客户端
+### Configure MCP Client
 
-#### Claude Desktop 配置
+#### Claude Desktop Configuration
 
-**使用 npx（推荐）：**
+**Using npx (recommended):**
 
-编辑配置文件：
+Edit the configuration file:
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/Claude/claude_desktop_config.json`
@@ -35,9 +35,9 @@
 ```
 
 
-#### Cursor 配置
+#### Cursor Configuration
 
-**使用 npx（推荐）：**
+**Using npx (recommended):**
 ```json
 {
   "mcpServers": {
@@ -49,21 +49,21 @@
 }
 ```
 
-### 重启 Claude Desktop
+### Restart Claude Desktop
 
-配置完成后，完全退出并重新启动 Claude Desktop。
+After configuration, completely quit and restart Claude Desktop.
 
-### 使用工具
+### Using the Tool
 
-在 Claude Desktop 中直接询问：
+Simply ask in Claude Desktop:
 
 ```
-请帮我获取当前机器的公网 IP 信息
+Please get the current machine's public IP information
 ```
 
-## 启用详细日志 🔍
+## Enable Verbose Logging 🔍
 
-如果需要查看详细的运行日志(用于调试或了解程序运行情况),可以在配置中添加 `env` 字段:
+If you need to view detailed runtime logs (for debugging or understanding program operation), you can add an `env` field to the configuration:
 
 ```json
 {
